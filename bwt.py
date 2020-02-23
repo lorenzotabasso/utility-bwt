@@ -1,3 +1,4 @@
+
 # global vaiables definition
 bwt = []
 firstOccurrence = []
