@@ -93,12 +93,14 @@ def pretty_print(sequence):
     str_bwm = "BWM" + " " * int(len(sequence) + 3 - len("BWM"))
     str_fo = "FO" + " " * 3
     str_sa = " " * 3 + "SA"
+    str_ca = " " * len(str_bwm + str_fo) + "CA"
 
     letter = ""
     for x in checkpoint_array_letters:
         letter += x
 
-    print("\n{0}{1}{2}{3}".format(str_bwm, str_fo, letter, str_sa))
+    print("\n{0}".format(str_ca))
+    print("{0}{1}{2}{3}".format(str_bwm, str_fo, letter, str_sa))
 
     for i in bwt_all:
         if len(str(bwt_all[i][1])) == 1:
