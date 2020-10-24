@@ -5,6 +5,9 @@ Checkpoint Array and Suffix Array.
 
 __author__ = "Lorenzo Tabasso"
 
+import sys
+import re
+from optparse import OptionParser
 from itertools import cycle
 
 
@@ -114,21 +117,53 @@ bwt_all = {}
 checkpoint_array_letters = []
 
 if __name__ == "__main__":
-    sequence = input('Enter sequence: ')
-    sequence += "$"
+    
+    argv = sys.argv[1:]
+    parser = OptionParser()
 
-    b = input('Enter integer B for the Checkpoint array (blank for 1): ')
-    a = input('Enter integer A for the Suffix array (blank for 1): ')
-    if b == "":
-        b = 1
-    if a == "":
-        a = 1
+    parser.add_option("-i", "--input", help='input', action="store", type="string", dest="input")
 
-    final = bwt_via_bwm(sequence)
+    parser.add_option("-c", "--checkpointArray", help='integer B for the checkpoint array', action="store", type="int",
+                        dest="checkpointArray", default=1)
+
+    parser.add_option("-s", "--suffixArray", help='integer A for the suffix array', action="store", type="int",
+                        dest="suffixArray", default=1)
+
+    (options, args) = parser.parse_args()
+
+    if options.input is None or options.checkpointArray is None or options.suffixArray is None:
+        valid = {"yes": True, "y": True, "no": False, "n": False}
+        
+        exit = False
+        while not exit:
+            message = "Missing mandatory parameters, whould you like to specify those now? [y/n] "
+            choice = input(message)
+            if choice not in valid:
+                print("Please respond with 'yes' or 'no' (or 'y' or 'n').\n")
+            elif valid[choice] == False:
+                sys.exit(2)
+            else:  # valid[choice] == True, e.g. "yes"
+                exit = True
+
+        sequence = input('Enter sequence: ')
+
+        b = input('Enter integer B for the Checkpoint array (blank for 1): ')
+        a = input('Enter integer A for the Suffix array (blank for 1): ')
+        if b == "":
+            b = 1
+        if a == "":
+            a = 1
+    else:
+        sequence = options.input
+        b = options.checkpointArray
+        a = options.suffixArray
+
+    cleaned_sequence = sequence.replace("$", "") + "$" 
+    final = bwt_via_bwm(cleaned_sequence)
 
     first_occurrence()
     checkpoint_array(final, int(b))
     suffix_array(int(a))
-    pretty_print(sequence)
+    pretty_print(cleaned_sequence)
 
     print('\nBurrows-Wheeler Transform:\t{}'.format(final))
