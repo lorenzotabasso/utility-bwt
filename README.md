@@ -1,6 +1,6 @@
-# utility-bwt
+# Utility-bwt
 
-A BWT (Burrows WheelerTransform) utility suite written in python
+A BWT (Burrows Wheeler Transform) utility suite written in python.
 
 ## Usage
 
@@ -24,8 +24,8 @@ getting "panamabananas$".
 The previous arguments are also aviable in their extended version:
 
 - ```--input```
-- ```--checkpointArray```
-- ```--suffixArray```
+- ```--checkpoint_array```
+- ```--suffix_array```
 
 Their behavior is the same as the corrensponding short version.
 
@@ -47,7 +47,7 @@ y$biolog | 7  | ------- | 6
 
 Burrows-Wheeler Transform:      y$obolig
 
-➜  utility-bwt git:(master) ✗ python3 bwt.py --input biology --checkpointArray 2 --suffixArray 3
+➜  utility-bwt git:(master) ✗ python3 bwt.py --input biology --checkpoint_array 2 --suffix_array 3
 
                 CA
 BWM        FO   $bgiloy   SA
