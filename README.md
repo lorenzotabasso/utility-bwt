@@ -32,7 +32,7 @@ Their behavior is the same as the corrensponding short version.
 Here's an example of run:
 
 ```shell
-➜  utility-bwt git:(master) ✗ python3 bwt.py -i biology -c 2 -s 3
+➜  src git:(master) ✗ python3 bwt.py -i biology -c 2 -s 3
 
                 CA
 BWM        FO   $bgiloy   SA
@@ -47,7 +47,7 @@ y$biolog | 7  | ------- | 6
 
 Burrows-Wheeler Transform:      y$obolig
 
-➜  utility-bwt git:(master) ✗ python3 bwt.py --input biology --checkpoint_array 2 --suffix_array 3
+➜  src git:(master) ✗ python3 bwt.py --input biology --checkpoint_array 2 --suffix_array 3
 
                 CA
 BWM        FO   $bgiloy   SA
@@ -70,11 +70,11 @@ will prompt you a message asking if you want to insert the argument manually, or
 an example.
 
 ```shell
-➜  utility-bwt git:(master) ✗ python3 bwt.py
+➜  src git:(master) ✗ python3 bwt.py
 Missing mandatory parameters, whould you like to specify those now? [y/n] n
 ➜  utility-bwt git:(master) ✗
 
-➜  utility-bwt git:(master) ✗ python3 bwt.py
+➜  src git:(master) ✗ python3 bwt.py
 Missing mandatory parameters, whould you like to specify those now? [y/n] maybe
 Please respond with 'yes' or 'no' (or 'y' or 'n').
 
