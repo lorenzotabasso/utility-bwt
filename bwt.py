@@ -155,8 +155,8 @@ if __name__ == "__main__":
             a = 1
     else:
         sequence = options.input
-        b = options.checkpointArray
-        a = options.suffixArray
+        b = options.checkpoint_array
+        a = options.suffix_array
 
     cleaned_sequence = sequence.replace("$", "") + "$" 
     final = bwt_via_bwm(cleaned_sequence)
