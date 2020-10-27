@@ -123,15 +123,15 @@ if __name__ == "__main__":
 
     parser.add_option("-i", "--input", help='input', action="store", type="string", dest="input")
 
-    parser.add_option("-c", "--checkpointArray", help='integer B for the checkpoint array', action="store", type="int",
-                        dest="checkpointArray", default=1)
+    parser.add_option("-c", "--checkpoint_array", help='integer B for the checkpoint array', action="store", type="int",
+                        dest="checkpoint_array", default=1)
 
-    parser.add_option("-s", "--suffixArray", help='integer A for the suffix array', action="store", type="int",
-                        dest="suffixArray", default=1)
+    parser.add_option("-s", "--suffix_array", help='integer A for the suffix array', action="store", type="int",
+                        dest="suffix_array", default=1)
 
     (options, args) = parser.parse_args()
 
-    if options.input is None or options.checkpointArray is None or options.suffixArray is None:
+    if options.input is None or options.checkpoint_array is None or options.suffix_array is None:
         valid = {"yes": True, "y": True, "no": False, "n": False}
         
         exit = False
